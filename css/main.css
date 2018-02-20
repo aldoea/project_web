@@ -1,0 +1,187 @@
+html, body {
+	box-sizing: border-box;
+}
+
+body{ 
+	font-family: verdana;
+	float: left;
+	margin: 0;
+}
+
+#father {
+	float: left;
+	margin: 0;
+	padding: 0;
+}
+
+#super_header { width: 100%; float: left; }
+#super_header div { width: 100%; float: left; }
+#super_header div nav{ 
+	width: 100%;
+	height: 30px; 
+	float: left; 
+	text-align-last: right;
+	background-color: #8ff7b3;
+}
+#super_header div nav ul {	
+	margin: 0;
+	padding: 0;
+}
+#super_header div nav ul li {
+	display: inline-block;
+	padding-left: 10px; 
+}
+#super_header div nav ul li a {
+	text-decoration: none;
+	font-weight: bold;
+	padding-right: 20px;
+}
+#super_header div nav ul li a:link { color: #333333; }
+#super_header div nav ul li a:hover { color: white; }
+#super_header div nav ul li a:active { color: #CFFC92; }
+
+.session_sprite{
+	background:url(images/sprite.png);
+	width: 12px;
+	height: 12px;
+}
+.signup {
+	background-position: -145px -25px;
+}
+
+.login {
+	background-position: -169px -1px;	
+}
+
+
+#super_header div img {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	float: left;
+}
+
+#options_nav {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	float: left;
+	background-color: #333333;
+	box-sizing: border-box;
+}
+
+#options_nav ul {
+	list-style-type: none;	
+	margin: 0;
+	padding: 0;
+	float: left;
+	width: 100%;
+	height: 50px;	
+}
+
+#options_nav ul li{
+	width: calc(100%/5);
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+	float: left;
+	text-align: center;	
+	line-height: 50px;	
+}
+#options_nav ul li a{ 
+	text-decoration: none; 
+	font-weight: bold; 
+	color: white;
+}
+#options_nav ul li a:visited { color: white; }
+#options_nav ul li a:hover { color: #8ff7b3; }
+#options_nav ul li a:active { color: #CFFC92; }
+
+#father main{
+	width: 100%;
+	float: left;
+}
+
+#father main section {
+	width: 80%;
+	background-color: #ffffff;
+	float: left;
+	display: inline-block;
+}
+
+#father main aside {
+	width: 20%;
+	background-color: #f2f2f2;	
+	float: right;
+	display: inline-block;
+}
+
+#father main aside img {
+	width: 100%;
+}
+
+#father footer {
+	width: 100%;
+	background-color: #333333;
+	float: left;
+	color: white;
+}
+
+#footer_main{
+	width: 100%;
+	float: left;
+}
+
+#footer_main aside{
+	width: 25%;
+    max-height: 100px;
+    height: 100px;
+	float: left;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: red;	
+}
+
+#footer_main section{
+	width: 75%;
+    max-height: 100px;
+    height: 100px;
+	float: right;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: lightblue;
+	font-family: 'Lobster', cursive;
+	font-size: 20px;
+	text-align: center;
+}
+
+#father footer footer{
+	width: 100%;
+	height: 150px;
+	float: left;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: black;
+	color: white;	
+	font-size: 0.8em; 
+	font-weight: lighter;
+}
+
+a[class^="boton_rs_"]{ /**/
+	width: 62px;
+	height: 58px;
+	background: URL('../images/redessociales.png');
+	float: left;
+	margin-bottom: 10px;
+}
+
+a.boton_rs_youtube{background-position: -248px 0px}
+a.boton_rs_twitter{background-position: -310px 0px}
+a.boton_rs_facebook{background-position: -372px 0px}
+
+a.boton_rs_youtube:hover{background-position: -248px -58px}
+a.boton_rs_twitter:hover{background-position: -310px -58px}
+a.boton_rs_facebook:hover{background-position: -372px -58px}
