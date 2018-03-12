@@ -1,4 +1,12 @@
-<!DOCTYPE html>
+<?php 
+	include('deposito.class.php');	
+	$deposito = new Deposito;
+	$marcas = $deposito -> getMarcas();
+	echo "<pre>";
+	print_r($marcas)
+ ?>
+
+ <!DOCTYPE html>
 <html>
 <head>
 	<title>Depósito del Hogar</title>
@@ -15,13 +23,14 @@
 		<!-- HEADER SECTION -->
 		<!-- <header id="super_header"> -->
 		<header id="super_header" class="container-fluid">
-			<header class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3">
-		      	<h5 class="my-0 mr-md-auto font-weight-normal">Deposito del hogar</h5>
-		      	<nav class="my-2 my-md-0 mr-md-3">		        
-			        <a class="p-2 text-dark" href="sistema/registro.php">Iniciar sesión</a>
-	    		</nav>
-			    <a class="btn btn-outline-primary" href="sistema/login.php">Registro</a>
-		    </header>	
+			<div class="container-fluid">
+				<nav class="row">
+					<ul>
+						<li><a href="sistema/registro.php">Registro</a></li>
+						<li><a href="sistema/login.php">Iniciar sesión</a></li>						
+					</ul>
+				</nav>
+			</div>
 			<div class="row">
 				<img id="header_img" src="images/header.jpg">
 			</div>
@@ -62,22 +71,57 @@
 		      </li>
 		    </ul>
 		    <form class="form-inline my-2 my-lg-0">
-		      <input class="form-control mr-sm-2" type="search" placeholder="Buscar productos" aria-label="Search">
+		      <input class="form-control mr-sm-2" type="search" placeholder="Buscar marcas" aria-label="Search">
 		      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
 		    </form>
 		  </div>
 		</nav>
 		<div class="container-fluid">
 		  <div class="row">
-		    <div class="col-9 px-0 mx-0">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		    <div class="col-9">
+				<section>
+					<article>
+						<h1>Listado de marcas</h1>						
+						<?php  
+							$counter = 0;
+							$product_len = count($marcas);
+							
+							if ($product_len != 3) {
+								$residual = 3 - ($product_len % 3);	
+							}else{
+								$residual = 0;
+							}
+
+							for ($i=0; $i < count($marcas); $i++) { 
+								if ($i%3 == 0) {
+									echo '<div class="row">';
+								}
+								$marca = '
+									<div class="col-sm">
+										<img class="img-fluid img-thumbnail" src="images/'.$marcas[$i]['imagen'].'" alt="desarmador_truper">
+										<span class="normal_price">'.$marcas[$i]['marca'].'</span>
+										<span class="offert_price">'.$marcas[$i]['cantidad'].'</span>
+									</div>
+								';
+								echo $marca;
+								$counter += 1;
+								
+								if ($i == count($marcas) - 1 and $residual != 0) {
+									for ($j=0; $j < $residual ; $j++) { 
+											echo '<div class="col-sm"> </div>';
+									}	
+								}
+
+								if ($counter == 3) {
+									echo "</div>";
+									$counter = 0;
+								}
+							}
+						?>	
+					</article>
+				</section>
 		    </div>
-		    <div id="publicidad" class="col-3 px-0 mx-0">		      
+		    <div id="publicidad" class="col-3">		      
 				<img src="images/paint_promotions.gif"/>
 				<!--<img src="images/paint_promotions.gif"/>-->
 		    </div>

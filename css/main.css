@@ -1,123 +1,13 @@
-html, body {
-	box-sizing: border-box;
-}
-
 body{ 
 	font-family: verdana;
-	float: left;
-	margin: 0;
 }
 
-#father {
-	float: left;
-	margin: 0;
-	padding: 0;
+#header_img {
+	max-width: 100%;
 }
 
-#super_header { width: 100%; float: left; }
-#super_header div { width: 100%; float: left; }
-#super_header div nav{ 
-	width: 100%;
-	height: 30px; 
-	float: left; 
-	text-align-last: right;
-	background-color: #8ff7b3;
-}
-#super_header div nav ul {	
-	margin: 0;
-	padding: 0;
-}
-#super_header div nav ul li {
-	display: inline-block;
-	padding-left: 10px; 
-}
-#super_header div nav ul li a {
-	text-decoration: none;
-	font-weight: bold;
-	padding-right: 20px;
-}
-#super_header div nav ul li a:link { color: #333333; }
-#super_header div nav ul li a:hover { color: white; }
-#super_header div nav ul li a:active { color: #CFFC92; }
-
-.session_sprite{
-	background:url(images/sprite.png);
-	width: 12px;
-	height: 12px;
-}
-.signup {
-	background-position: -145px -25px;
-}
-
-.login {
-	background-position: -169px -1px;	
-}
-
-
-#super_header div img {
-	width: 100%;
-	margin: 0;
-	padding: 0;
-	float: left;
-}
-
-#options_nav {
-	width: 100%;
-	margin: 0;
-	padding: 0;
-	float: left;
-	background-color: #333333;
-	box-sizing: border-box;
-}
-
-#options_nav ul {
-	list-style-type: none;	
-	margin: 0;
-	padding: 0;
-	float: left;
-	width: 100%;
-	height: 50px;	
-}
-
-#options_nav ul li{
-	width: calc(100%/5);
-	display: inline-block;
-	margin: 0;
-	padding: 0;
-	float: left;
-	text-align: center;	
-	line-height: 50px;	
-}
-#options_nav ul li a{ 
-	text-decoration: none; 
-	font-weight: bold; 
-	color: white;
-}
-#options_nav ul li a:visited { color: white; }
-#options_nav ul li a:hover { color: #8ff7b3; }
-#options_nav ul li a:active { color: #CFFC92; }
-
-#father main{
-	width: 100%;
-	float: left;
-}
-
-#father main section {
-	width: 80%;
-	background-color: #ffffff;
-	float: left;
-	display: inline-block;
-}
-
-#father main aside {
-	width: 20%;
-	background-color: #f2f2f2;	
-	float: right;
-	display: inline-block;
-}
-
-#father main aside img {
-	width: 100%;
+#publicidad img {
+	max-width: 100%;	
 }
 
 #father footer {
@@ -139,8 +29,7 @@ body{
 	float: left;
 	display: flex;
 	align-items: center;
-	justify-content: center;
-	background-color: red;	
+	justify-content: center;	
 }
 
 #footer_main section{
@@ -150,8 +39,7 @@ body{
 	float: right;
 	display: flex;
 	align-items: center;
-	justify-content: center;
-	background-color: lightblue;
+	justify-content: center;	
 	font-family: 'Lobster', cursive;
 	font-size: 20px;
 	text-align: center;

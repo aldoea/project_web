@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Depósito del Hogar</title>
+	<title>Contacto</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
@@ -10,22 +10,30 @@
 
 </head>
 <body>
-	<!--<div id="father">-->
-	<div id="father" class="container-fluid mx-0 px-0">
+	<div id="father">
 		<!-- HEADER SECTION -->
-		<!-- <header id="super_header"> -->
-		<header id="super_header" class="container-fluid">
-			<header class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3">
-		      	<h5 class="my-0 mr-md-auto font-weight-normal">Deposito del hogar</h5>
-		      	<nav class="my-2 my-md-0 mr-md-3">		        
-			        <a class="p-2 text-dark" href="sistema/registro.php">Iniciar sesión</a>
-	    		</nav>
-			    <a class="btn btn-outline-primary" href="sistema/login.php">Registro</a>
-		    </header>	
-			<div class="row">
-				<img id="header_img" src="images/header.jpg">
+		<header id="super_header">
+			<div>
+				<nav>
+					<ul>
+						<li><a href="sistema/registro.php">Registro</a></li>
+						<li><a href="sistema/login.php">Iniciar sesión</a></li>						
+					</ul>
+				</nav>
+			</div>
+			<div>
+				<img src="images/header.jpg">
 			</div>
 		</header>
+		<!-- <nav id="options_nav">
+			<ul>
+				<li><a href="index.html">Inicio</a></li>
+				<li><a href="departamentos.php">Departamentos</a></li>
+				<li><a href="proyectos.php">Proyectos</a></li>
+				<li><a href="tiendas.html">Tiendas</a></li>
+				<li><a href="promociones.html">Promociones</a></li>
+			</ul>
+		</nav> -->
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 		  <a class="navbar-brand" href="index.html">Deposito del hogar</a>
 		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -66,29 +74,33 @@
 		      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
 		    </form>
 		  </div>
-		</nav>
-		<div class="container-fluid">
-		  <div class="row">
-		    <div class="col-9 px-0 mx-0">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-		    </div>
-		    <div id="publicidad" class="col-3 px-0 mx-0">		      
-				<img src="images/paint_promotions.gif"/>
-				<!--<img src="images/paint_promotions.gif"/>-->
-		    </div>
-		  </div>		  
-		</div>
+		</nav>			 	
 		
+		<!-- MAIN SECTION -->
+		<main>
+			<form method="get" action="comentario_guardar.php">
+			  <div class="form-group">
+			    <label for="nameInput">Nombre</label>
+			    <input type="text" name="nombre" class="form-control" id="nameInput" aria-describedby="name" placeholder="Nombre">
+			    <label for="lastnameInput">Apellidos</label>
+			    <input type="text" name="apellido" class="form-control" id="lastnameInput" aria-describedby="lastname" placeholder="Apellidos">
+			    <label for="exampleInputEmail1">Email address</label>
+			    <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">			    
+			    <label for="telInput">Telefono</label>
+			    <input type="tel" name="telefono" class="form-control" id="telInput" aria-describedby="tel" placeholder="Telefono">
+			    <div class="form-group">
+			       <label for="textareaInput">Comentario</label>
+			       <textarea class="form-control" name="comentario" id="textareaInput" rows="3"></textarea>
+		     	</div>	
+			  <button type="submit" class="btn btn-success">Submit</button>
+			  <button type="reset" class="btn btn-danger">Reset</button>
+			</form>
+		</main>		
+
 
 		<!-- FOOTER SECTION -->
 		<footer>
-			<!--<div id="footer_main">-->
-			<div>
+			<div id="footer_main">
 				<aside>
 					<a href='#' class='boton_rs_youtube' title='youtube'></a>
 					<a href='#' class='boton_rs_twitter' title='twitter'></a>
@@ -101,10 +113,7 @@
 			</footer>
 		</footer>
 		
-		<!-- MAIN SECTION 
-		<main></main>
-		<footer></footer>
-		FOOTER SECTION -->		
+		
 	</div>
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
