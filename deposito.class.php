@@ -20,11 +20,22 @@
 			$this -> con=$mysqli;
 		} # END conexion()
 
-		public function getProductos()
+		public function getProductos($marca_id = null, $q = null)
 		{
-			$productos = array();			
+			$productos = array();	
+			$condicion = "";
+			if ($marca_id != null) {
+				$condicion = "where marca.id_marca = $marca_id";
+			}
+			if ($q != null) {
+				$condicion = "where (productos.nombre like '%$q%' or marcas.marca like '%$q%')"
+			}
+			if ($marca_id != null) {
+				# code...
+			}
+
 			$this -> conexion();
-			if( $resultado = $this -> con -> query("select producto.nombre, producto.imagen, producto.precio, producto.precio_desc, producto.id_marca, marca.id, marca.marca from producto inner join marca on producto.id_marca = marca.id;")) {				
+			if( $resultado = $this -> con -> query("select producto.nombre, producto.imagen, producto.precio, producto.precio_desc, producto.id_marca, marca.id, marca.marca from producto inner join marca on producto.id_marca = marca.id $condicion;")) {				
 				while ($datos = $resultado -> fetch_object()) {						
 					array_push($productos, (array)$datos);
 				}
@@ -45,6 +56,19 @@
 			}
 			return $marcas;
 		} # END getMarcas()
+
+		public function getPublicidad()
+		{
+			$publicidad = array();
+			$this -> conexion();
+			$sql="SELECT * FROM publicidad WHERE fecha >= now() order by rand() limit 1";
+			if ($resultado = $this -> conexion -> query($sql)) {
+				while ($datos = $resultado -> fetch_object()) {
+					$publicidad = array('id' => $datos ->id, 'publicidad' => $datos->publicidad, 'imagen' => $datos->imagen, 'fecha' => $datos->fecha);
+				}
+				return $publicidad;
+			}
+		}
 
 	} # END class Deposito
  ?>
