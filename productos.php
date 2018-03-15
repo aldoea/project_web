@@ -44,10 +44,10 @@
 						<div class="card">
 							<img class="card-img-top" src="images/productos/'.$productos[$i]['imagen'].'" alt='.$productos[$i]['nombre'].'_'.$productos[$i]['marca'].'">
 						  	<div class="card-body">
-						    	<h5 class="card-title font-weight-bold text-capitalize">'.$productos[$i]['nombre'].'</h5>
+						    	<h5 class="card-title text-capitalize">'.$productos[$i]['nombre'].'</h5>
 						    	<p class="card-text product-brand text-uppercase text-warning">'.$productos[$i]['marca'].'</p>
-						    	<span class="text-success font-weight-bold product-normal-price pr-3">'.$productos[$i]['precio'].'</span>
-						    	<span class="text-danger product-offert-price">'.$productos[$i]['precio_desc'].'</span>
+						    	<span class="text-success font-weight-bold product-normal-price pr-auto">$'.$productos[$i]['precio'].'</span>
+						    	<span class="text-danger text-mistake">$'.$productos[$i]['precio_desc'].'</span>
 						    	<a href="#" class="btn btn-outline-light btn-outline-darkorange mt-3">Agregar al carro</a>
 						  	</div>
 						</div>
@@ -58,7 +58,7 @@
 				
 				if ($i == count($productos) - 1 and $residual != 0) {
 					for ($j=0; $j < $residual ; $j++) { 
-							echo '<div class="col"> </div>';
+						echo '<div class="col"> </div>';
 					}	
 				}
 

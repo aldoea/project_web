@@ -65,14 +65,44 @@
 		{
 			$publicidad = array();
 			$this -> conexion();
-			$sql="SELECT * FROM publicidad WHERE fecha >= now() order by rand() limit 1";
-			if ($resultado = $this -> conexion -> query($sql)) {
+			$sql = "SELECT * FROM publicidad WHERE fecha >= now() order by rand() limit 1";
+			if ($resultado = $this -> con -> query($sql)) {
 				while ($datos = $resultado -> fetch_object()) {
 					$publicidad = array('id' => $datos ->id, 'publicidad' => $datos->publicidad, 'imagen' => $datos->imagen, 'fecha' => $datos->fecha);
 				}
 				return $publicidad;
 			}
-		}
+		} # END getPublicidad()
 
+
+		public function getProyectos($proyecto_id=null)
+		{
+			$proyectos = array();
+			$this -> conexion();
+			$sql = "SELECT * FROM proyecto WHERE fecha >= now()";
+			if ($resultado = $this -> con -> query($sql)) {
+				while ($datos = $resultado -> fetch_object()) {
+					array_push($proyectos, (array)$datos);
+				}				
+				return $proyectos;
+			}
+		} # END getProyectos()
+
+		public function getProductosDeProyecto($proyecto_id=null)
+		{
+			$productos = array();
+			$condicion = "";
+			$this -> conexion();
+			if ($proyecto_id != null) {
+				$condicion = "where pro.id=$proyecto_id";
+			}
+			$sql = "SELECT p.nombre from producto p inner join producto_proyecto pp on p.id=pp.id_producto inner join proyecto pro on pp.proyecto_id=pro.id $condicion";
+			if ($resultado = $this -> con -> query($sql)) {
+				while ($datos = $resultado -> fetch_object()) {
+					array_push($productos, (array)$datos);
+				}				
+				return $productos;
+			}
+		}
 	} # END class Deposito
  ?>

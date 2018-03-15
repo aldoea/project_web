@@ -85,7 +85,10 @@ a.boton_rs_facebook:hover{background-position: -372px -58px}
 	max-width: 75%;
 }
 
-.product-offert-price {
-	color: red;
+.text-mistake {	
 	text-decoration: line-through;
+}
+
+.font-family-lobster {
+	font-family: 'Lobster', cursive;
 }
