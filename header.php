@@ -13,7 +13,7 @@
 		<!-- HEADER SECTION -->		
 		<header id="super_header" class="container-fluid bg-darkorange">
 			<header class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-0">
-		      	<h5 class="my-0 mr-md-auto font-weight-normal">Deposito del hogar</h5>
+		      	<h5 class="my-0 mr-md-auto font-weight-bold">Deposito del hogar</h5>
 		      	<nav class="my-2 my-md-0 mr-md-3">		        
 			        <a class="p-2 dark-link" href="sistema/registro.php">Iniciar sesión</a>
 	    		</nav>
@@ -43,11 +43,15 @@
 		        </div>
 		      </li>
 		      <li class="nav-item">
-		        <a class="nav-link" href="#">Proyectos</a>
+		        <a class="nav-link" href="proyectos.php">Proyectos</a>
 		      </li>
 		      
 		      <li class="nav-item">
 		        <a class="nav-link" href="#">Tiendas</a>
+		      </li>
+
+		      <li class="nav-item">
+		        <a class="nav-link" href="productos.php">Productos</a>
 		      </li>
 
 		      <li class="nav-item">
@@ -59,11 +63,11 @@
 		    </ul>
 		    <form class="form-inline my-2 my-lg-0">
 		      <input class="form-control mr-sm-2" type="search" placeholder="Buscar productos" aria-label="Search">
-		      <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Buscar</button>
+		      <button class="btn btn-outline-light btn-outline-darkorange my-2 my-sm-0" type="submit">Buscar</button>
 		    </form>
 		  </div>
 		</nav>
 		<!-- MAIN SECTION -->
 		<div class="container-fluid">
 		  <div class="row">
-		    <div class="col-9 px-0 mx-0">
+		    <div class="col-9 p-3 mx-0">

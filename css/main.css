@@ -63,5 +63,29 @@ a.boton_rs_facebook:hover{background-position: -372px -58px}
 	background-color: black;
 }
 
+.btn-outline-darkorange {
+	color: darkorange;
+	border-color: darkorange;
+}
 
+.btn-outline-darkorange:hover{
+	background-color: darkorange;
+	color: white;
+	border-color: transparent;
+}
 
+.product-name {
+	font-size: 1.25em;
+}
+
+.product-brand {
+	font-size: 0.80em;
+}
+.product-image {
+	max-width: 75%;
+}
+
+.product-offert-price {
+	color: red;
+	text-decoration: line-through;
+}
