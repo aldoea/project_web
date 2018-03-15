@@ -35,7 +35,7 @@
 			}
 
 			$this -> conexion();
-			if( $resultado = $this -> con -> query("select producto.nombre, producto.imagen, producto.precio, producto.precio_desc, producto.id_marca, marca.id, marca.marca from producto inner join marca on producto.id_marca = marca.id $condicion order by producto.nombre;")) {				
+			if( $resultado = $this -> con -> query("select producto.id, producto.nombre, producto.imagen, producto.precio, producto.precio_desc, producto.id_marca, marca.marca from producto inner join marca on producto.id_marca = marca.id $condicion order by producto.nombre;")) {				
 				while ($datos = $resultado -> fetch_object()) {						
 					array_push($productos, (array)$datos);
 				}
@@ -104,5 +104,17 @@
 				return $productos;
 			}
 		}
+
+
+		public function deleteProducto($id_producto)
+		{
+			if (is_numeric($id_producto)) {
+				$sql = "delete from producto where producto.id=".$id_producto;
+				$this -> con -> query($sql);
+				return $this->con->affected_rows;
+			}
+			return 0;
+		}
+
 	} # END class Deposito
  ?>
