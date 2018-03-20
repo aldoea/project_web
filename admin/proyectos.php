@@ -1,5 +1,7 @@
 <?php  
-	include "header.php";	
+	include "header.php";
+	include "../deposito.class.php";
+	$admin = new Deposito;
 	$productos = $admin -> getProductos();
 ?>
 	<h1>Catalogo de productos</h1>
@@ -26,10 +28,10 @@
 						<td>'.$productos[$i]['precio'].'</td>
 						<td>'.$productos[$i]['precio_desc'].'</td>	  				  
 						<td>
-	  				  		<a class="ml-3 text-warning" href="productos.form_update.php?id='.$productos[$i]['id'].'">
+	  				  		<a class="ml-3 text-warning" href="productos.form.php?producto_id='.$productos[$i]['id'].'">
 	  				  			<i class="fas fa-pencil-alt"></i>
   				  			</a>
-  				  			<a class="ml-3 text-danger" href="productos.delete.php?id='.$productos[$i]['id'].'">
+  				  			<a class="ml-3 text-danger" href="productos.delete.php?producto_id='.$productos[$i]['id'].'">
 	  				  			<i class="fas fa-trash-alt"></i>
   				  			</a>
 		  				</td>	  				  

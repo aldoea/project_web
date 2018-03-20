@@ -1,7 +1,6 @@
 <?php  
 	include "../deposito.class.php";
-	$admin = new Deposito;
-	$productos = $admin -> getProductos();
+	$admin = new Deposito;	
 ?>
 <!DOCTYPE html>
 <html>
@@ -16,7 +15,7 @@
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-		<a class="navbar-brand" href="index.html">Administrador</a>
+		<a class="navbar-brand" href="index.php">Administrador</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
@@ -28,6 +27,8 @@
 					</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 						<a class="dropdown-item" href="productos.php">Productos</a>
+						<a class="dropdown-item" href="marcas.php">Marcas</a>
+						<a class="dropdown-item" href="proyectos.php">Proyectos</a>
 					</div>
 				</li>				
 				<li class="nav-item">
