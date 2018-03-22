@@ -6,7 +6,7 @@
 	}	
 	$sql = "SELECT * FROM producto where id=$id";
 	$resultado = $admin->consultar($sql);	
-	$datos =(array) $resultado->fetch_object();	
+	$datos =(array) $resultado->fetchObject();	
 	$nombre = $datos['nombre'];
 	$precio = $datos['precio'];
 	$precio_desc = $datos['precio_desc'];

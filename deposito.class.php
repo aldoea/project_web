@@ -4,20 +4,18 @@
 	*/
 	class Deposito
 	{
-		/*
-		function __construct(argument)
-		{
-			# code...
-		}
+		/*		
+			
 		*/		
 		var $con = null;
-		private function conexion(){
+		public function conexion(){
 			$user = 'root';
 			$password = '';
 			$server = 'localhost';
 			$bd = 'depot';
-			$mysqli = new mysqli($server, $user, $password, $bd);
-			$this -> con=$mysqli;
+							# DSN 									
+			$mbd = new PDO('mysql:host='.$server.';dbname='.$bd, $user, $password);
+			$this -> con=$mbd;
 		} # END conexion()
 
 		public function getProductos($marca_id = null, $query = null)
@@ -36,10 +34,10 @@
 
 			$this -> conexion();
 			if( $resultado = $this->consultar("select producto.id, producto.nombre, producto.imagen, producto.precio, producto.precio_desc, producto.id_marca, marca.marca from producto inner join marca on producto.id_marca = marca.id $condicion order by producto.nombre;")) {				
-				while ($datos = $resultado -> fetch_object()) {						
+				while ($datos = $resultado -> fetchObject()) {						
 					array_push($productos, (array)$datos);
 				}
-				$resultado -> close();
+				#$resultado -> close();
 			}
 			return $productos;
 		} # END getProductos
@@ -54,7 +52,7 @@
 			$marcas = array();			
 			$this -> conexion();
 			if( $resultado = $this->con->query("select marca.id, marca.marca, marca.imagen, count(producto.id) as cantidad from marca inner join producto on marca.id = producto.id_marca $condicion;")){
-				while ($datos = $resultado -> fetch_object()) {		
+				while ($datos = $resultado -> fetchObject()) {		
 					print_r($datos);
 					array_push($marcas, (array)$datos);
 				}
@@ -69,7 +67,7 @@
 			$this -> conexion();
 			$sql = "SELECT * FROM publicidad WHERE fecha >= now() order by rand() limit 1";
 			if ($resultado = $this->con->query($sql)) {
-				while ($datos = $resultado -> fetch_object()) {
+				while ($datos = $resultado -> fetchObject()) {
 					$publicidad = array('id' => $datos ->id, 'publicidad' => $datos->publicidad, 'imagen' => $datos->imagen, 'fecha' => $datos->fecha);
 				}
 				return $publicidad;
@@ -83,7 +81,7 @@
 			$this -> conexion();
 			$sql = "SELECT * FROM proyecto WHERE fecha >= now()";
 			if ($resultado = $this->con->query($sql)) {
-				while ($datos = $resultado -> fetch_object()) {
+				while ($datos = $resultado -> fetchObject()) {
 					array_push($proyectos, (array)$datos);
 				}				
 				return $proyectos;
@@ -100,7 +98,7 @@
 			}
 			$sql = "SELECT p.nombre from producto p inner join producto_proyecto pp on p.id=pp.id_producto inner join proyecto pro on pp.proyecto_id=pro.id $condicion";
 			if ($resultado = $this->con->query($sql)) {
-				while ($datos = $resultado -> fetch_object()) {
+				while ($datos = $resultado -> fetchObject()) {
 					array_push($productos, (array)$datos);
 				}				
 				return $productos;
@@ -112,19 +110,18 @@
 		{
 			if (is_numeric($id_producto)) {
 				$sql = "delete from producto where producto.id=".$id_producto;				
-				return $this->execute($sql);
+				return $this->ejecutar($sql);
 			}
 			return 0;
 		} # END deleteProducto
 
-		public function execute($sql)
+		public function ejecutar($sql)
 		{
 			if ($sql != null) {
 				$this->conexion();
-				$this->con->query($sql);
-				return $this->con->affected_rows;
+				return $this->con->exec($sql);				
 			}
-		} # END execute
+		} # END ejecutar
 
 		public function consultar($sql)
 		{

@@ -1,6 +1,7 @@
 <?php  
 	include "../deposito.class.php";
 	$admin = new Deposito;	
+	$admin->conexion();
 ?>
 <!DOCTYPE html>
 <html>
