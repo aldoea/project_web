@@ -1,34 +1,31 @@
 <?php  
 	include "header.php";
 	$marcas = $admin -> getMarcas();
-	print_r($marcas);
-	die;
 ?>
-	<h1>Catalogo de productos</h1>
-	<a class="btn btn-success mt-2 mb-2" role="button" href="productos.form.php">Nuevo producto</a>
+	<h1>Catalogo de marcas</h1>
+	<a class="btn btn-success mt-2 mb-2" role="button" href="marcas.form.php">Nueva marca</a>
 	<table class="table table-striped table-dark">
 	  <thead>
 	    <tr>
 	      <th scope="col">#</th>
-	      <th scope="col">Marca</th>	      
-	      <th scope="col">Precio</th>
-	      <th scope="col">Precio desc</th>
+	      <th scope="col">Marca</th>	      	      
+	      <th scope="col">Imagen</th>	      	      
 	      <th scope="col">Opciones</th>
 	    </tr>
 	  </thead>
 	  <tbody>
 	  	<?php  
-	  		for ($i=0; $i < count($productos); $i++) { 
+	  		for ($i=0; $i < count($marcas); $i++) { 
 	  			echo '
 	  				<tr>
-						<th scope="row">'.$productos[$i]['id'].'</th>
-						<td>'.$productos[$i]['marca'].'</td>			
-						<td>'.$productos[$i]['precio_desc'].'</td>	  				  
+						<th scope="row">'.$marcas[$i]['id'].'</th>
+						<td>'.$marcas[$i]['marca'].'</td>			
+						<td>'.$marcas[$i]['imagen'].'</td>	  				  
 						<td>
-	  				  		<a class="ml-3 text-warning" href="productos.form.php?producto_id='.$productos[$i]['id'].'">
+	  				  		<a class="ml-3 text-warning" href="marcas.form_update.php?id_marca='.$marcas[$i]['id'].'">
 	  				  			<i class="fas fa-pencil-alt"></i>
   				  			</a>
-  				  			<a class="ml-3 text-danger" href="productos.delete.php?producto_id='.$productos[$i]['id'].'">
+  				  			<a class="ml-3 text-danger" href="marcas.delete.php?id_marca='.$marcas[$i]['id'].'">
 	  				  			<i class="fas fa-trash-alt"></i>
   				  			</a>
 		  				</td>	  				  

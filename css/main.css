@@ -92,3 +92,24 @@ a.boton_rs_facebook:hover{background-position: -372px -58px}
 .font-family-lobster {
 	font-family: 'Lobster', cursive;
 }
+
+.row.vdivide [class*='col-']:not(:last-child):after {
+  background: #e0e0e0;
+  width: 1px;
+  content: "";
+  display:block;
+  position: absolute;
+  top:0;
+  bottom: 0;
+  right: 0;
+  min-height: 70px;
+}
+
+.thead-darkorange{
+	color: white;
+	background-color: darkorange;
+}
+
+.text-darkorange{
+	color: darkorange;
+}

@@ -1,7 +1,5 @@
-<?php 
-	echo "<pre>";
-	print_r($_GET);
-
+<?php
+	include "header.php";
 	$nombre = $_GET['nombre'];
 	$appellido = $_GET['apellido'];
 	$email = $_GET['email'];
@@ -16,4 +14,5 @@
 	fclose($commentsFile);
 
 	echo "Gracias $nombre $appellido por tus comentarios";
+	include "footer.php";
  ?>

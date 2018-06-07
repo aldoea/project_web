@@ -1,16 +1,23 @@
 <?php 
 	include "header.php";
-	include('deposito.class.php');	
-	$deposito = new Deposito;
 	$productos = array();
 	$marca = array();
 	if (isset($_GET['query'])) {
 		$productos = $deposito -> getProductos($query = $_GET['query']);			
 	}
-	elseif (isset($_GET['marca_id'])) {
-		$productos = $deposito -> getProductos($marca_id = $_GET['marca_id']);
-		$marca = $deposito -> getMarcas($marca_id = $_GET['marca_id']);
-	}else {
+	elseif (isset($_GET['id_marca'])) {
+		if (is_numeric($_GET['id_marca'])) {
+			$id_marca = $_GET['id_marca'];
+			$productos = $deposito -> getProductosByIdMarca($id_marca);
+			$marca = $deposito -> getProductosByIdMarca($id_marca);
+		}
+	}
+	elseif (isset($_GET['buscar'])) {
+		if (!is_null($_GET['item'])) {
+			$productos = $deposito -> searchProductos($_GET['item']);
+		}
+	}
+	else {
 		$productos = $deposito -> getProductos();
 	}
 
@@ -46,13 +53,29 @@
 						  	<div class="card-body">
 						    	<h5 class="card-title text-capitalize">'.$productos[$i]['nombre'].'</h5>
 						    	<p class="card-text product-brand text-uppercase text-warning">'.$productos[$i]['marca'].'</p>
-						    	<span class="text-success font-weight-bold product-normal-price pr-auto">$'.$productos[$i]['precio'].'</span>
-						    	<span class="text-danger text-mistake">$'.$productos[$i]['precio_desc'].'</span>
-						    	<a href="#" class="btn btn-outline-light btn-outline-darkorange mt-3">Agregar al carro</a>
+						    	<span class="text-success font-weight-bold product-normal-price pr-auto">$'.$productos[$i]['precio_desc'].'</span>
+						    	<span class="text-danger text-mistake">$'.$productos[$i]['precio'].'</span>
+						    	<a href="producto.php?id_producto='.$productos[$i]['id'].'" class="btn btn-outline-light btn-outline-darkorange mt-3">Ver producto</a>
 						  	</div>
 						</div>
 					</div>
 				';
+				if (!$productos[$i]['precio_desc']) {
+					$producto = '
+						<div class="col">
+							<div class="card">
+								<img class="card-img-top" src="images/productos/'.$productos[$i]['imagen'].'" alt='.$productos[$i]['nombre'].'_'.$productos[$i]['marca'].'">
+							  	<div class="card-body">
+							    	<h5 class="card-title text-capitalize">'.$productos[$i]['nombre'].'</h5>
+							    	<p class="card-text product-brand text-uppercase text-warning">'.$productos[$i]['marca'].'</p>
+							    	<span class="text-success font-weight-bold product-normal-price pr-auto">$'.$productos[$i]['precio'].'</span>
+							    	<a href="producto.php?id_producto='.$productos[$i]['id'].'" class="btn btn-outline-light btn-outline-darkorange mt-3">Ver producto</a>
+							  	</div>
+							</div>
+						</div>
+					';
+				}
+				
 				echo $producto;
 				$counter += 1;
 				

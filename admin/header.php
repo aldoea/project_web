@@ -11,7 +11,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="../css/main.css">
+	<link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/unigrid-flat-buildings/90/008_015_warehouse_building_depot_storehouse_storage_4-512.png">	
 	<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
 </head>
 <body>
@@ -33,7 +34,12 @@
 					</div>
 				</li>				
 				<li class="nav-item">
-					<a class="nav-link" href="pruebas.php">Pruebas</a>
+					<a class="nav-link" href="../index.php">Home</a>
+				</li>
+			</ul>
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item">
+					<a class="nav-link" href="logout.php">Logout</a>
 				</li>
 			</ul>
 		</div>

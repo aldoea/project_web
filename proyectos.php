@@ -1,11 +1,10 @@
 <?php  
 include "header.php";
-include('deposito.class.php');	
-$deposito = new Deposito;
-$proyectos = $deposito -> getProyectos();
 $productos = array();
 if (isset($_GET['proyecto_id'])) {
-	$productos = $deposito -> getProductosDeProyecto($proyecto_id = $_GET['proyecto_id']);			
+	$productos = $deposito -> getProductosDeProyecto($_GET['proyecto_id']);			
+}else{
+	$proyectos = $deposito -> getProyectos();
 }
 /**
 echo "<pre>";
@@ -14,18 +13,10 @@ die;*/
 ?>	
 <section>
 	<article>
+		<?php if(isset($proyectos)): ?>
 		<h1>Lista de proyectos</h1>
 		<div id="accordion" class="mt-3">
-			<?php  
-				if (isset($_GET['proyecto_id']) && !empty($productos)) {
-					echo "Entra el if";
-					echo "<pre>";
-					print_r($proyectos);
-					die;
-				}else {
-					echo "Empty";
-				}
-
+			<?php				
 				for ($i=0; $i < count($proyectos); $i++) { 
 					$proyecto = '
 						<div class="card">
@@ -51,9 +42,18 @@ die;*/
 			?>			
 
 		</div>
-
+		<?php elseif(isset($_GET['proyecto_id'])): 			
+		?>
+		<h1>Productos para <?php echo $productos[0]['proyecto'] ?></h1>
+		<div class="list-group">
+			<?php 
+				foreach ($productos as $producto) {
+					echo '<a href="producto.php?id_producto='.$producto['id'].'" class="list-group-item list-group-item-action">'.ucwords($producto['nombre']).'</a>';
+				}
+			?>
+		</div>
 		<?php  
-
+			endif;
 		?>
 	</article>
 </section>
